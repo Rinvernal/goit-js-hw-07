@@ -12,15 +12,15 @@ function Boxes(amount) {
   boxes.innerHTML = '';
 
   let size = 30;
-  for (let i = 0; i < amount; i++) {
-    const div = document.createElement('div');
-    div.style.width = `${size}px`;
-    div.style.height = `${size}px`;
-    div.style.backgroundColor = getRandomHexColor();
 
-    boxes.appendChild(div);
+  const elem = [];
+
+  for (let i = 0; i < amount; i++) {
+    const div = `<div style = "width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}"></div>`;
+    elem.push(div);
     size += 10;
   }
+  boxes.innerHTML = elem.join('');
 }
 
 create.addEventListener('click', () => {
